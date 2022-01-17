@@ -15,9 +15,9 @@ You can have acces to the code [clicking here.](https://github.com/Thadeuks/Tran
 
 # Requeriments
 
-For this application i used some **packages** that you **will need to run** this program properly, so i made a **list of all the requirements **that you have to install before trying my app:  [You can have access to that clicking here.](https://github.com/Thadeuks/Translator-Python/blob/master/requirements.txt "You can have access to that clicking here")
+For this application i used some **packages** that you **will need to run** this program properly, so i made a **list of all the requirements** that you have to install before trying my app:  [You can have access to that clicking here.](https://github.com/Thadeuks/Translator-Python/blob/master/requirements.txt "You can have access to that clicking here")
 
-To install those packages you just have to **create a .txt file ** (*recommendably name it "requirements.txt" *) and copy the content of the [requeriments document](https://github.com/Thadeuks/Translator-Python/blob/master/requirements.txt "requeriments document") inside it.
+To install those packages you just have to **create a .txt file** (*recommendably name it "requirements.txt"*) and copy the content of the [requeriments document](https://github.com/Thadeuks/Translator-Python/blob/master/requirements.txt "requeriments document") inside it.
 
 Then execute the next commands on your terminal:
 
