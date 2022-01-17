@@ -1,14 +1,17 @@
-#libraries
+#import libraries
+#tkinter(documentation -> https://docs.python.org/3/library/tkinter.html)
 import tkinter as tk
 from tkinter import ttk
 import tkinter.font as tkFont
+
 from functools import partial
+#googletrans(documentation -> https://py-googletrans.readthedocs.io/en/latest/)
 import googletrans
 from googletrans import Translator
 
 
 #all the languages available
-languages = googletrans.LANGUAGES #all the languages default dictionary
+languages = googletrans.LANGUAGES #dictionary of all languages
 languages_list = list(languages.values()) #a list of the values of the languages dictionary
 
 #find the key from the value in the languages dict
@@ -21,16 +24,16 @@ def translate(txt, in_lan, out_lan, output_place):
 	#obtains the languages that the user selected (entry widget)
 	in_l = in_lan.get()
 	out_l = out_lan.get()
-	#find the key of that value in the languages dict
+	#finds the key of that value in the languages dict
 	input_lan = get_lan(in_l)
 	output_lan = get_lan(out_l)
-	#obtain the info from the text widget
+	#obtains the info from the text widget
 	text = txt.get('1.0', 'end')
 	#creates the translator
 	translator = Translator(service_urls=['translate.google.com',
 		'translate.google.co.kr'
 		])
-	#detects the language in wich the text is written
+	#detects the language in which the text is written
 	try:
 		detect_lan = translator.detect(text)
 		real_lan = detect_lan.lang 
@@ -43,24 +46,23 @@ def translate(txt, in_lan, out_lan, output_place):
 			translate = translator.translate(text, src=input_lan, dest=output_lan)
 			#gets the result of the translation
 			translated_text = str(translate.text) 
-			#deletes the text that is there before
+			#deletes the text that was there before
 			output_place.delete('1.0', 'end')
-			#inserts the translated text in tje text widget
+			#inserts the translated text in the text widget
 			output_place.insert('insert', translated_text)
-		#if there is an error onm the translation, just output the input text
+		#if there is an error on the translation, just output the input text
 		except:
-			#deletes the text that is there before
+			#deletes the text that was there before
 			output_place.delete('1.0', 'end')
 			#inserts the same text without changes
 			output_place.insert('insert', text)
 	#if the languages are not congruent, then, suggest to the user to translate the text from the real language
 	if input_lan != real_lan:
-		#deletes the text that is there before
+		#deletes the text that was there before
 		output_place.delete('1.0', 'end')
 		#inserts the same text without changes
 		output_place.insert('insert', text)
-		#translate from the real language function
-		def translate_from_real(real_language):
+		def translate_from_real(real_language):	#translate from the real language 
 			try:
 				translate = translator.translate(text, src=real_language, dest=output_lan)#translate the text from the real language
 				translated_text = str(translate.text) 
@@ -84,18 +86,17 @@ def select_language_window(lan):
 	def select_lan(_list, lan):
 		try:
 			selection = _list.get(_list.curselection())#gets the selection
-			if lan == 'input': #chooses either the input language or output language
+			#detect which language is being changed
+			if lan == 'input':#either input language
 				input_lan_txt.delete(0, 'end')#delete the text (language) that was there before
 				input_lan_txt.insert('end', f'{selection}')#inserts the language that the user selected
-			elif lan == 'output':
+			elif lan == 'output': #or output language
 				output_lan_txt.delete(0, 'end')
 				output_lan_txt.insert('end', f'{selection}')
 		except:
 			pass
 
-
-
-		select_lan_win.destroy()
+		select_lan_win.destroy() #destroy the window after selecting the language
 
 	#create the select language window
 	select_lan_win = tk.Toplevel(trans_window)
@@ -104,7 +105,7 @@ def select_language_window(lan):
 	select_lan_win.title('Select Language')
 	#creates a list widget 
 	languages_available = tk.Listbox(select_lan_win)
-	#inserts the values from languages list in the list box
+	#inserts the values from languages list into the list box
 	languages_available.insert(0, *languages_list)
 	languages_available.place(x=5, y=5, width=220, height=220)
 	#select language button
@@ -139,9 +140,11 @@ text_entry.place(x=40, y=120, width=300, height=300)
 #text ouput
 text_output = tk.Text(trans_window)
 text_output.place(x=450, y=120, width=300, height=300)
-#select lan button
+#select language buttons
+#change the input lanugage
 select_input_lan = ttk.Button(text='>', command=partial(select_language_window, 'input'))
 select_input_lan.place(x=265, y=90)
+#change the output language
 select_output_lan = ttk.Button(text='>', command=partial(select_language_window, 'output'))
 select_output_lan.place(x=675, y=90)
 #translate button
