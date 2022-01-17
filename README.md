@@ -1,5 +1,8 @@
+
 # Translator-Python
 This is a translator that i made by myself in python with the 'googletrans' library
+
+![Captura de pantalla (7)](https://user-images.githubusercontent.com/93542549/149846750-3ee91ece-c170-46e8-a7e0-34d0fc158c78.png)
 
 # Description
 This simple application allows you to **translate a text** from one language to another through a simple interface, using the [googletrans](https://pypi.org/project/googletrans/ "googletrans") library.
