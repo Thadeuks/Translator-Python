@@ -11,7 +11,7 @@ I am searching for feedback, so feel free of giving your opinion about the app.
 
 I would really appreciate that you give it a try, check the code and comment me about anything that i could improve.
 
-You can have acces to the code [clicking here.](https://github.com/Thadeuks/Translator-Python/blob/master/main.py "clicking here.")
+You can have access to the code [clicking here.](https://github.com/Thadeuks/Translator-Python/blob/master/main.py "clicking here.")
 
 # Requeriments
 
